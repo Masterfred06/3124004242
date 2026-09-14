@@ -94,7 +94,7 @@ class PlagiarismCheckerTests(unittest.TestCase):
             self.assertEqual(run_cli([]), 2)
 
     def test_sample_add_file_stays_in_expected_range(self) -> None:
-        sample_dir = Path(__file__).resolve().parents[1] / "测试文本"
+        sample_dir = Path(__file__).resolve().parents[1] / "tests_datasets"
         score = check_documents(
             str(sample_dir / "orig.txt"), str(sample_dir / "orig_0.8_add.txt")
         )
@@ -102,7 +102,7 @@ class PlagiarismCheckerTests(unittest.TestCase):
         self.assertLess(score, 0.95)
 
     def test_sample_html_file_extracts_article_content(self) -> None:
-        sample_dir = Path(__file__).resolve().parents[1] / "测试文本"
+        sample_dir = Path(__file__).resolve().parents[1] / "tests_datasets"
         score = check_documents(
             str(sample_dir / "orig.txt"), str(sample_dir / "orig_0.8_dis_1.txt")
         )
